@@ -20,8 +20,8 @@ student:
 # ----------------------------------------------------------
 ai_usage:
   used: true
-  tools: "Gemini"
-  description: "Used Gemini to write the test cases"
+  tools: "Gemini 3.1 Pro"
+  description: "Used Gemini to write the test cases, also used its help for the creation of the xpaths and debugging"
                        #  classes, then modified them manually. Used Copilot 
                        #  for autocomplete while writing test methods."
                        
