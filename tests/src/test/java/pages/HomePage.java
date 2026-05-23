@@ -2,11 +2,15 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class HomePage extends BasePage {
     private final By cookieAcceptButton = By.xpath("//button[contains(@class, 'cookie-banner__accept') or contains(text(), 'Accept All')]");
     private final By rankingsLink = By.xpath("//a[contains(@href, '/rankings')]");
     private final By newsLink = By.xpath("//div[@id='main-nav']//a[contains(@href, '/news')]"); // Komplex XPath
+    
     
     public HomePage(WebDriver driver, int timeout) {
         super(driver, timeout);
@@ -35,4 +39,11 @@ public class HomePage extends BasePage {
         safeJavaScriptClick(newsLink);
         return new NewsPage(driver, 10);
     }
+
+    public void hoverOverRankings() {
+    WebElement rankings = wait.until(ExpectedConditions.visibilityOfElementLocated(rankingsLink));
+    Actions actions = new Actions(driver);
+    actions.moveToElement(rankings).perform();
+    }
+
 }

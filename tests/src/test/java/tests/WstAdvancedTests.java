@@ -38,4 +38,16 @@ public class WstAdvancedTests extends BaseTest {
         driver.manage().deleteCookieNamed("test_automation");
         assertNull(driver.manage().getCookieNamed("test_automation"));
     }
+
+    @Test
+    public void testHoverOverMenuElement_DoesNotThrowException() {
+        HomePage homePage = new HomePage(driver, timeout);
+        homePage.handleCookieConsent();
+        
+        // Hover akció végrehajtása
+        homePage.hoverOverRankings();
+        
+        // Egyszerű ellenőrzés, hogy az oldal címe továbbra is elérhető-e (nem omlott össze a UI)
+        assertNotNull(driver.getTitle());
+    }
 }
